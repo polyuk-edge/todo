@@ -1,0 +1,53 @@
+<div class="todo-form" align="center">
+  <div class="head">todos</div>
+
+  <%= form_for :todo, :url => { :action => "create" } do |f| %>
+
+  <div class="check-all">
+    <%= link_to "todos/check_all", :action => :todo, :method => :put do %>
+      <span class="check-button">V</span>
+    <% end %>
+  </div>
+    <%= f.text_field :body, class: "todo-input", :required => true %>
+  <% end %>
+
+  <% @todos.each do |todo| %>
+
+      <div class="todo-line <%= check_box_class_name(todo.checked) %>">
+
+        <%= link_to "todos/#{todo.id}", :action => :todo, :method => :put do %>
+          <div class="check-box-div"></div>
+        <% end %>
+
+        <%= link_to "todos/#{todo.id}", :action => :todo, :method => :delete do %>
+          <span class="delete-icon">×</span>
+
+        <% end %>
+
+        <span class="todo-body"><%= todo.body %></span>
+
+      </div>
+
+  <% end %>
+
+  <div class="filter-container">
+
+    <div class="counter">
+      <%= todos_active_counter(@active_todo_count)%>
+    </div>
+
+    <%= link_to todos_path(@todos) do %>
+        <span class="filter-button">All</span>
+    <% end %>
+    <%= link_to todos_path(@todos, :query => "active") do %>
+        <span class="filter-button">Active</span>
+    <% end %>
+    <%= link_to todos_path(@todos, :query => "completed") do %>
+        <span class="filter-button">Completed</span>
+    <% end %>
+    <%= link_to "todos/destroy_all", :action => :todo, :method => :delete do %>
+        <span class="clear-button">Clear completed</span>
+    <% end %>
+
+  </div>
+</div>

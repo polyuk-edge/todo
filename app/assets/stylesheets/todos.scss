@@ -1,0 +1,128 @@
+.todo-form {
+  font-family: arial, sans-serif;
+  .head {
+    color: red;
+    opacity: 0.2;
+    font-size: 120px;
+  }
+
+  .todo-line {
+    width: 500px;
+    height: auto;
+    box-shadow: 0 0 3px 0.1px;
+    padding: 15px 30px;
+    font-size: 30px;
+    color: #4d4d4d;
+    text-align: left;
+
+    .delete-icon {
+      float: right;
+      color: red;
+      font-weight: 900;
+      opacity: 0;
+
+      &:hover {
+        opacity: 1 !important;
+      }
+    }
+
+    &:hover {
+      .delete-icon {opacity: 0.5}
+    }
+  }
+
+  .c {
+    width: 30px;
+    height: 30px;
+    border-radius: 60px;
+    box-shadow: 0 0 3px 0.1px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .unchecked {
+    .check-box-div {
+      @extend .c;
+    }
+  }
+
+  .checked {
+    .todo-body {
+      color: #d9d9d9;
+      text-decoration: line-through;
+    }
+
+    .check-box-div {
+      @extend .c;
+      background-image: url(https://cdn2.iconfinder.com/data/icons/basicset/tick_64.png);
+      background-size: cover;
+    }
+  }
+
+  .todo-input {
+    width: 400px;
+    height: 30px;
+    border: 0px;
+    box-shadow: 0 0 3px 0.1px;
+    margin-bottom: 2px;
+    padding: 15px 80px;
+    font-size: 30px;
+    color: #4d4d4d;
+  }
+
+  .filter-container {
+    padding-top: 15px;
+    width: 560px;
+    height: 30px;
+    box-shadow: 0 0 3px 0.1px;
+    .filter-button {
+      margin-right: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(175, 47, 47, 0.2);
+      color: rgba(119, 119, 119, 1);
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.check-button {
+  position: absolute;
+  top: 160px;
+  left: 683px;
+  color: gray;
+  font-weight: 700;
+  font-size: 30px;
+  opacity: 0.5;
+}
+
+.text-in-head {
+  position: absolute;
+  top: 160px;
+  left: 725px;
+  color: gray;
+  font-weight: 700;
+  font-style: italic;
+
+  opacity: 0.3;
+  font-size: 30px;
+}
+
+.counter {
+  float: left;
+  margin-left: 10px;
+  color: rgba(119, 119, 119, 1);
+}
+
+.clear-button {
+  color: rgba(119, 119, 119, 1);
+  float: right;
+  margin-right: 10px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
